@@ -23,7 +23,7 @@ export function Navbar({ children }: { children: ReactNode }) {
   }, []);
   return (
     <nav
-      className={`fixed w-full h-fit grid grid-cols-3 px-4  transition-all duration-100 ease-in ${
+      className={`fixed w-full h-fit grid grid-cols-3 px-4 z-50 bg-primary text-white transition-all duration-100 ease-in ${
         scrolling ? "backdrop-blur-md bg-gray-400/50" : ""
       }`}
     >

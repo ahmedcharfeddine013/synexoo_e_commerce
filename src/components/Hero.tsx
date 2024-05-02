@@ -19,6 +19,8 @@ import {
   CardTitle,
 } from "./ui/card";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   const [carouselItems, setCarouselItems] = useState<product[] | null>();
@@ -64,25 +66,35 @@ export function CarouselItems({ products }: { products: product[] }) {
               <Image
                 src={product.image}
                 alt={product.title}
-                width={400}
-                height={400}
+                width={300}
+                height={300}
               ></Image>
             </div>
             {/* left side  */}
-            <Card>
+            <Card className="border-none shadow-none">
               <CardHeader>
                 <CardTitle>{product.title}</CardTitle>
                 <CardDescription>{product.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div>Price: ${product.price}</div>
+                <div className="flex items-center justify-center gap-4">
+                  {" "}
+                  <p>
+                    Price:{" "}
+                    <span className="text-red-500">${product.price}</span>
+                  </p>
+                  <p>Rating : {product.rating.rate}</p>
+                  <Button asChild>
+                    <Link href={`/product/${product.id}`}>EXPLORE ITEM</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="border-none " />
+      <CarouselNext className="border-none" />
     </Carousel>
   );
 }
