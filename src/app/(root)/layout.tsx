@@ -15,7 +15,7 @@ export default function Layout({
   return (
     <>
       <Navbar>
-        <div className="flex flex-row items-center justify-center gap-4">
+        <div className="flex flex-row items-center justify-center ">
           <NavLink href={"/shop"}>SHOP</NavLink>
           <NavLink href={"/men"}>MEN</NavLink>
           <NavLink href={"/women"}>WOMEN</NavLink>

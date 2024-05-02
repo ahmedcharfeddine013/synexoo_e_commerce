@@ -23,7 +23,7 @@ export function Navbar({ children }: { children: ReactNode }) {
   }, []);
   return (
     <nav
-      className={`fixed w-full h-fit grid grid-cols-3 px-4 py-4 transition-all duration-100 ease-in ${
+      className={`fixed w-full h-fit grid grid-cols-3 px-4  transition-all duration-100 ease-in ${
         scrolling ? "backdrop-blur-md bg-gray-400/50" : ""
       }`}
     >
@@ -34,5 +34,5 @@ export function Navbar({ children }: { children: ReactNode }) {
 
 export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
   const pathname = usePathname();
-  return <Link {...props} />;
+  return <Link {...props} className="py-6 px-4 hover:bg-secondary" />;
 }
