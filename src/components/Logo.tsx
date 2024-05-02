@@ -5,8 +5,8 @@ import React from "react";
 export default function Logo() {
   return (
     <Link href={"/"}>
-      <h1>
-        <span className="text-white font-bold">EXTRA</span>MARKET
+      <h1 className="text-2xl">
+        <span className=" font-bold">EXTRA</span>MARKET
       </h1>
     </Link>
   );
