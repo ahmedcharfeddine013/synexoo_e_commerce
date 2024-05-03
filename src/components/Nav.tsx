@@ -6,13 +6,14 @@ import { Button } from "./ui/button";
 import { NavLink } from "./Navbar";
 import { Heart, ShoppingCart } from "lucide-react";
 import { Avatar } from "./ui/avatar";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
 
   return (
     <div className="relative">
-      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-10">
+      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
           <div></div>
           <div>
@@ -47,11 +48,11 @@ export default function Nav() {
       </nav>
       <div
         className={`flex absolute transition-all ease-in duration-100  ${
-          toggled ? "z-50 left-0 " : "left-[-400px]"
+          toggled ? "z-10 left-0 " : "left-[-400px]"
         }`}
       >
         <div
-          className="w-fit h-full bg-white flex flex-col items-center gap-6 justify-center fixed px-10"
+          className="w-fit h-full bg-gray-50 flex flex-col items-center gap-6 justify-center fixed px-10"
           id="navbar-hamburger"
         >
           <div className="flex flex-col items-center justify-center gap-4 ">
@@ -66,6 +67,7 @@ export default function Nav() {
             <ShoppingCart />
             <Avatar />
           </div>
+          <SocialMediaLinks />
         </div>
       </div>
     </div>
