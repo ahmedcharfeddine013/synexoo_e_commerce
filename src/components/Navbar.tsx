@@ -34,5 +34,10 @@ export function Navbar({ children }: { children: ReactNode }) {
 
 export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
   const pathname = usePathname();
-  return <Link {...props} className="py-6 px-4 hover:bg-secondary" />;
+  return (
+    <div className="relative link">
+      <Link {...props} />
+      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gray-400 transition-all duration-300"></span>
+    </div>
+  );
 }

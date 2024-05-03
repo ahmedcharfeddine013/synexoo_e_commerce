@@ -1,77 +1,79 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
+import { Button } from "./ui/button";
+import { NavLink } from "./Navbar";
+import { Heart, ShoppingCart } from "lucide-react";
+import { Avatar } from "./ui/avatar";
 
 export default function Nav() {
+  const [toggled, setToggled] = useState(false);
+
   return (
-    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div>
-          <Logo />
-        </div>
-        <button
-          data-collapse-toggle="navbar-hamburger"
-          type="button"
-          className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-hamburger"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
+    <div className="relative">
+      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-10">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
+          <div></div>
+          <div>
+            <Logo />
+          </div>
+          <Button
+            onClick={() => setToggled(!toggled)}
+            data-collapse-toggle="navbar-hamburger"
+            type="button"
+            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-hamburger"
+            aria-expanded="false"
           >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-        <div className="hidden w-full" id="navbar-hamburger">
-          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </Button>
+        </div>
+      </nav>
+      <div
+        className={`flex absolute transition-all ease-in duration-100  ${
+          toggled ? "z-50 left-0 " : "left-[-400px]"
+        }`}
+      >
+        <div
+          className="w-fit h-full bg-white flex flex-col items-center gap-6 justify-center fixed px-10"
+          id="navbar-hamburger"
+        >
+          <div className="flex flex-col items-center justify-center gap-4 ">
+            <NavLink href={"/shop"}>SHOP</NavLink>
+            <NavLink href={"/men"}>MEN</NavLink>
+            <NavLink href={"/women"}>WOMEN</NavLink>
+            <NavLink href={"/electronics"}>ELECTRONICS</NavLink>
+            <NavLink href={"/jewelery"}>JEWELERY</NavLink>
+          </div>
+          <div className="flex items-center flex-col gap-4 justify-center">
+            <Heart />
+            <ShoppingCart />
+            <Avatar />
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
+
+// function toggledList() {
+//   return (
+
+//   );
+// }
