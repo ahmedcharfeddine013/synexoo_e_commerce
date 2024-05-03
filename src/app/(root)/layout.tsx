@@ -4,6 +4,7 @@ import Logo from "@/components/Logo";
 import { ShoppingCart } from "lucide-react";
 import { Heart } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
+import Nav from "@/components/Nav";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +15,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <Navbar>
+      {/* <Navbar>
         <div className="flex flex-row items-center justify-center ">
           <NavLink href={"/shop"}>SHOP</NavLink>
           <NavLink href={"/men"}>MEN</NavLink>
@@ -30,7 +31,8 @@ export default function Layout({
           <ShoppingCart />
           <Avatar />
         </div>
-      </Navbar>
+      </Navbar> */}
+      <Nav />
       <div className="container">{children}</div>
     </>
   );
