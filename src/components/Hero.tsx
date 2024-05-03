@@ -21,6 +21,7 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import PageHeader from "./PageHeader";
 
 export default function Hero() {
   const [carouselItems, setCarouselItems] = useState<product[] | null>();
@@ -28,8 +29,14 @@ export default function Hero() {
   useEffect(() => {
     const fetchCarouselItems = async () => {
       try {
-        const res = await axios.get("https://fakestoreapi.com/products");
-        setCarouselItems(res.data);
+        const res = await axios.get(
+          "https://fakestoreapi.com/products/category/men's%20clothing"
+        );
+        const data = res.data;
+        const sortedData = data.sort(
+          (a: product, b: product) => b.rating.rate - a.rating.rate
+        );
+        setCarouselItems(sortedData);
       } catch (error) {
         console.log("Error fetching carousel items :", error);
       }
@@ -46,7 +53,8 @@ export default function Hero() {
     );
 
   return (
-    <div className="flex items-center h-screen justify-center">
+    <div className="flex flex-col items-center h-screen justify-center gap-20">
+      <PageHeader>TOP RATED</PageHeader>
       <CarouselItems products={carouselItems} />
     </div>
   );
@@ -59,7 +67,7 @@ export function CarouselItems({ products }: { products: product[] }) {
         {products.map((product) => (
           <CarouselItem
             key={product.id}
-            className="grid grid-cols-2 place-items-center w-screen"
+            className="grid grid-cols-1 md:grid-cols-2 place-items-center w-screen"
           >
             {/* Right side */}
             <div className="p-1 flex items-center justify-center">
@@ -68,16 +76,17 @@ export function CarouselItems({ products }: { products: product[] }) {
                 alt={product.title}
                 width={300}
                 height={300}
+                className="h-[300px] w-[300px] object-contain"
               ></Image>
             </div>
             {/* left side  */}
             <Card className="border-none shadow-none">
-              <CardHeader>
+              <CardHeader className="flex flex-col gap-5">
                 <CardTitle>{product.title}</CardTitle>
                 <CardDescription>{product.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-start gap-4">
                   {" "}
                   <p>
                     Price:{" "}
@@ -93,8 +102,8 @@ export function CarouselItems({ products }: { products: product[] }) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="border-none " />
-      <CarouselNext className="border-none" />
+      <CarouselPrevious className="border-none left-0  " />
+      <CarouselNext className="border-none right-0" />
     </Carousel>
   );
 }
