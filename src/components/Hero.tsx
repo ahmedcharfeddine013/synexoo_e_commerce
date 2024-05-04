@@ -60,7 +60,7 @@ export default function Hero() {
   );
 }
 
-export function CarouselItems({ products }: { products: product[] }) {
+function CarouselItems({ products }: { products: product[] }) {
   return (
     <Carousel className="w-full">
       <CarouselContent>
