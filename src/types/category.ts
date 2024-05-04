@@ -8,18 +8,18 @@ export const Catergories = [
 export const categoryLinks = [
   {
     category: "Electronics",
-    link: "/category/electronics",
+    link: "/electronics",
   },
   {
     category: "Jewelery",
-    link: "/category/jewelery",
+    link: "/jewelery",
   },
   {
     category: "Men's clothing",
-    link: "/category/men",
+    link: "/men's clothing",
   },
   {
     category: "Women's clothing",
-    link: "/category/women",
+    link: "/women's clothing",
   },
 ];

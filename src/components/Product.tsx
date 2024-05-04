@@ -11,7 +11,7 @@ export default function ProductDisplay({ product }: { product: product }) {
       key={product.id}
       className="group h-72 w-72 lg:h-80 lg:w-80 relative flex items-center justify-center overflow-hidden"
     >
-      <Link href={`/${product.catergory}/${product.id}`}>
+      <Link href={`/products/${product.id}`}>
         <div className="flex items-center justify-center">
           <Image
             src={product.image}
