@@ -86,7 +86,7 @@ export function CarouselItems({ products }: { products: product[] }) {
                 <CardDescription>{product.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-col md:flex-row items-center justify-start gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   {" "}
                   <p>
                     Price:{" "}
