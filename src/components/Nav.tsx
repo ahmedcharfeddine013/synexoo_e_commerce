@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import { Button } from "./ui/button";
 import { NavLink } from "./Navbar";
@@ -10,13 +10,34 @@ import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
+  const navbarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Function to handle clicks outside of the navbar
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
+        setToggled(false);
+      }
+    };
+
+    // Attach event listener when the component mounts
+    document.addEventListener("click", handleClickOutside);
+
+    // Cleanup: Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="relative">
+    <div ref={navbarRef} className="relative">
       <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
           <div></div>
-          <div>
+          <div onClick={() => setToggled(false)}>
             <Logo />
           </div>
           <Button
@@ -47,7 +68,7 @@ export default function Nav() {
         </div>
       </nav>
       <div
-        className={`flex absolute transition-all ease-in duration-100  ${
+        className={`flex absolute transition-all ease-in-out duration-300  ${
           toggled ? "z-10 left-0 " : "left-[-400px]"
         }`}
       >
@@ -56,11 +77,30 @@ export default function Nav() {
           id="navbar-hamburger"
         >
           <div className="flex flex-col items-center justify-center gap-4 ">
-            <NavLink href={"/shop"}>SHOP</NavLink>
-            <NavLink href={`${"men's clothing"}`}>MEN</NavLink>
-            <NavLink href={`${"women's clothing"}`}>WOMEN</NavLink>
-            <NavLink href={`${"electronics"}`}>ELECTRONICS</NavLink>
-            <NavLink href={`${"jewelery"}`}>JEWELERY</NavLink>
+            <NavLink href={"/shop"} onClick={() => setToggled(false)}>
+              SHOP
+            </NavLink>
+            <NavLink
+              href={`${"men's clothing"}`}
+              onClick={() => setToggled(false)}
+            >
+              MEN
+            </NavLink>
+            <NavLink
+              href={`${"women's clothing"}`}
+              onClick={() => setToggled(false)}
+            >
+              WOMEN
+            </NavLink>
+            <NavLink
+              href={`${"electronics"}`}
+              onClick={() => setToggled(false)}
+            >
+              ELECTRONICS
+            </NavLink>
+            <NavLink href={`${"jewelery"}`} onClick={() => setToggled(false)}>
+              JEWELERY
+            </NavLink>
           </div>
           <div className="flex items-center flex-col gap-4 justify-center">
             <Heart />
@@ -73,9 +113,3 @@ export default function Nav() {
     </div>
   );
 }
-
-// function toggledList() {
-//   return (
-
-//   );
-// }
