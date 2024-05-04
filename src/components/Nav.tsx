@@ -57,10 +57,10 @@ export default function Nav() {
         >
           <div className="flex flex-col items-center justify-center gap-4 ">
             <NavLink href={"/shop"}>SHOP</NavLink>
-            <NavLink href={"/men"}>MEN</NavLink>
-            <NavLink href={"/women"}>WOMEN</NavLink>
-            <NavLink href={"/electronics"}>ELECTRONICS</NavLink>
-            <NavLink href={"/jewelery"}>JEWELERY</NavLink>
+            <NavLink href={`${"men's clothing"}`}>MEN</NavLink>
+            <NavLink href={`${"women's clothing"}`}>WOMEN</NavLink>
+            <NavLink href={`${"electronics"}`}>ELECTRONICS</NavLink>
+            <NavLink href={`${"jewelery"}`}>JEWELERY</NavLink>
           </div>
           <div className="flex items-center flex-col gap-4 justify-center">
             <Heart />
