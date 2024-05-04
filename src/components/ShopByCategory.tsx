@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function ShopByCategory() {
   return (
     <div className="flex items-center justify-center flex-col py-10 gap-10">
-      <PageHeader>SHOP BY CATEGORY</PageHeader>
+      {/* <PageHeader>SHOP BY CATEGORY</PageHeader> */}
       <div className="flex items-center flex-col md:flex-row justify-center gap-4">
         {categoryLinks.map((category) => (
           <Link

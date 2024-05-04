@@ -79,3 +79,6 @@
   width: 100%;
 }
 
+#search_product:focus-within > span {
+  width: 100%;
+}
