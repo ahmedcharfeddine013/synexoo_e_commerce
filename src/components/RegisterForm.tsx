@@ -1,18 +1,22 @@
 import React from "react";
-import { Label } from "./ui/label";
+import PageHeader from "./PageHeader";
 import { Input } from "./ui/input";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import PageHeader from "./PageHeader";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <form className="bg-secondary p-10 rounded-xl flex items-center justify-center flex-col gap-5 w-[80%] md:w-[30rem] ">
-      <PageHeader>LOGIN</PageHeader>
+      <PageHeader>Create an account</PageHeader>
       <div className="flex items-center justify-center w-full flex-col gap-4">
         <Input
           type="text"
           placeholder="username"
+          className="border-none shadow-sm"
+        ></Input>
+        <Input
+          type="email"
+          placeholder="email"
           className="border-none shadow-sm"
         ></Input>
         <Input
@@ -30,7 +34,7 @@ export default function LoginForm() {
           forgot password ?
         </a>
       </div>
-      <Button className="w-full">Login</Button>
+      <Button className="w-full">Sign Up</Button>
     </form>
   );
 }

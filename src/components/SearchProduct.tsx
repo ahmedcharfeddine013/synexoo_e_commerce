@@ -57,14 +57,14 @@ export default function SearchProduct() {
       {/* results */}
 
       {loading && <div>Loading...</div>}
-      {!loading && searchResults.length === 0 && <div>No Items found</div>}
+      {/* {!loading && searchResults.length === 0 && <div>No Items found</div>}
       {!loading && searchResults.length > 0 && (
         <div>
           {searchResults.map((product: product) => (
             <searchItem key={product.id} {...product} />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 }
