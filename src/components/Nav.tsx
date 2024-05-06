@@ -106,7 +106,7 @@ export default function Nav() {
           <div className="flex items-center flex-col gap-4 justify-center">
             <Heart />
             <ShoppingCart />
-            <Button asChild>
+            <Button>
               {" "}
               <Link href={"/auth/signin"}>LOGIN</Link>
             </Button>

@@ -1,21 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import PageHeader from "./PageHeader";
 import { useAuth, User } from "@/context/UserContext";
-import { useRouter } from "next/navigation";
-import axios from "axios";
 
 export default function LoginForm() {
   const { login, error, user } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   //   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
 
   //   const handleLogin = async () => {
   //     try {
