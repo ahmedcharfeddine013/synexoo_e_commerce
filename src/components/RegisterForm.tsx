@@ -26,15 +26,17 @@ export default function RegisterForm() {
         ></Input>
       </div>
       <div className="flex items-center justify-between w-full flex-row ">
-        <Link className="text-sm text-gray-600" href={"/auth/signup"}>
-          New?{" "}
-          <span className="text-gray-900 hover:underline">Create account</span>
-        </Link>
+        <div className="text-sm text-gray-600">
+          <p>Already have an account? </p>
+          <Link href={"/auth/signin"} className="text-gray-900 hover:underline">
+            LOGIN
+          </Link>
+        </div>
         <a href="" className="text-gray-900 hover:underline text-sm">
           forgot password ?
         </a>
       </div>
-      <Button className="w-full">Sign Up</Button>
+      <Button className="w-full"> Sign Up</Button>
     </form>
   );
 }
