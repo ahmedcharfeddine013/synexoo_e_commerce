@@ -16,7 +16,7 @@ interface Name {
   lastname: string;
 }
 
-interface User {
+export type user = {
   id: number;
   email: string;
   username: string;
