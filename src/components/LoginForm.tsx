@@ -11,37 +11,47 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function LoginForm() {
-  const { login } = useAuth();
+  const { login, error, user } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  //   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  const handleLogin = async () => {
-    try {
-      // Fetch the list of users from the API
-      const response = await axios.get("https://fakestoreapi.com/users");
-      const userData: User[] = await response.data
+  //   const handleLogin = async () => {
+  //     try {
+  //       // Fetch the list of users from the API
+  //       const response = await axios.get("https://fakestoreapi.com/users");
+  //       const userData: User[] = await response.data
 
-      // Check if the entered username exists in the fetched user data
-      const userExists = userData.some((u) => u.username === username);
+  //       // Check if the entered username exists in the fetched user data
+  //       const userExists = userData.some((u) => u.username === username);
 
-      if (userExists) {
-        // If the user exists, attempt to log in
-        await login(username, password);
-        router.push("/shop");
-      } else {
-        // If the user does not exist, display an error
-        setError("User not found");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setError("Login failed. Please try again later.");
+  //       if (userExists) {
+  //         // If the user exists, attempt to log in
+  //         await login(username, password);
+  //         router.push("/shop");
+  //       } else {
+  //         // If the user does not exist, display an error
+  //         setError("User not found");
+  //       }
+  //     } catch (error) {
+  //       console.error("Login error:", error);
+  //       setError("Login failed. Please try again later.");
+  //     }
+  //   };
+
+  async function handleLogin() {
+    if (username && password) {
+      login(username, password);
     }
-  };
+  }
+
   return (
     <>
-      <form className="bg-secondary p-10 rounded-xl flex items-center justify-center flex-col gap-5 w-[80%] md:w-[30rem] ">
+      <form
+        onSubmit={handleLogin}
+        className="bg-secondary p-10 rounded-xl flex items-center justify-center flex-col gap-5 w-[80%] md:w-[30rem] "
+      >
         <PageHeader>LOGIN</PageHeader>
         <div className="flex items-center justify-center w-full flex-col gap-4">
           <Input
@@ -68,9 +78,7 @@ export default function LoginForm() {
             forgot password ?
           </a>
         </div>
-        <Button className="w-full" onClick={handleLogin}>
-          Login
-        </Button>
+        <Button className="w-full">Login</Button>
       </form>
     </>
   );
