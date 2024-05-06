@@ -7,6 +7,7 @@ import { NavLink } from "./Navbar";
 import { Heart, ShoppingCart } from "lucide-react";
 import { Avatar } from "./ui/avatar";
 import SocialMediaLinks from "./SocialMediaLinks";
+import Link from "next/link";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
@@ -105,7 +106,10 @@ export default function Nav() {
           <div className="flex items-center flex-col gap-4 justify-center">
             <Heart />
             <ShoppingCart />
-            <Avatar />
+            <Button asChild>
+              {" "}
+              <Link href={"/auth/signin"}>LOGIN</Link>
+            </Button>
           </div>
           <SocialMediaLinks />
         </div>
