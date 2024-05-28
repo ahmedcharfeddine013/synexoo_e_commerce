@@ -4,14 +4,14 @@ import { product } from "@/types/product";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "./ui/carousel";
-import Carousel from "react-bootstrap/Carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+
 import {
   Card,
   CardContent,
@@ -23,6 +23,15 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import PageHeader from "./PageHeader";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function Hero() {
   const [carouselItems, setCarouselItems] = useState<product[] | null>();
@@ -67,41 +76,33 @@ function CarouselItems({ products }: { products: product[] }) {
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
+
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      {products.map((product) => (
-        <Carousel.Item key={product.id}>
-          <div className="p-1 flex items-center justify-center">
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={300}
-              height={300}
-              className="h-[300px] w-[300px] object-contain"
-            ></Image>
-          </div>
-          {/* left side  */}
-          <Card className="border-none shadow-none">
-            <CardHeader className="flex flex-col gap-5">
-              <CardTitle>{product.title}</CardTitle>
-              <CardDescription>{product.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                {" "}
-                <p>
-                  Price: <span className="text-red-500">${product.price}</span>
-                </p>
-                <p>Rating : {product.rating.rate}</p>
-                <Button asChild>
-                  <Link href={`/product/${product.id}`}>EXPLORE ITEM</Link>
-                </Button>
+    <section className="py-12">
+      <div className="container">
+        <Swiper
+          navigation
+          pagination={{ type: "bullets" }}
+          modules={[Navigation, Pagination]}
+          onSwiper={(swiper) => console.log(swiper)}
+          className="h-96 w-full rounded-lg"
+        >
+          {products.map((product, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex h-full w-full items-center justify-center">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={300}
+                  height={300}
+                  className="block h-full w-full object-cover"
+                />
               </div>
-            </CardContent>
-          </Card>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
     // <Carousel className="w-full">
     //   <CarouselContent>
     //     {products.map((product) => (

@@ -1,6 +1,10 @@
 import { FacebookIcon, InstagramIcon } from "lucide-react";
 import { Mail } from "lucide-react";
 
+import banner_1 from "../../public/assets/1.jpg";
+import banner_2 from "../../public/assets/2.png";
+import banner_3 from "../../public/assets/3.webp";
+
 export const SocialMediaLinks = [
   {
     title: "Instagram",
@@ -12,14 +16,11 @@ export const SocialMediaLinks = [
     icon: <FacebookIcon />,
     link: "",
   },
-  // {
-  //   title: "Tiktok",
-  //   icon: "",
-  //   link: "",
-  // },
   {
     title: "Gmail",
     icon: <Mail />,
     link: "",
   },
 ];
+
+export const bannerImages = [banner_1, banner_2, banner_3];
