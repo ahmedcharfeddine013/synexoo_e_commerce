@@ -1,4 +1,4 @@
-
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { AuthProvider } from "@/context/UserContext";
 
@@ -14,6 +14,7 @@ export default function Layout({
       <AuthProvider>
         <Nav />
         <div>{children}</div>
+        <Footer />
       </AuthProvider>
     </main>
   );
