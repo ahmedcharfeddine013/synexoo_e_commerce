@@ -22,12 +22,6 @@ export default function Hero() {
 }
 
 function CarouselItems() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex: number) => {
-    setIndex(selectedIndex);
-  };
-
   return (
     <section className="py-12">
       <div className="container">
