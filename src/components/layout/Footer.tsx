@@ -5,21 +5,50 @@ import SocialMediaLinks from "../SocialMediaLinks";
 const Footer = () => {
   return (
     <div className="flex items-center flex-col bg-black text-white gap-5 justify-between border-t-2">
-      <div className="grid grid-cols-4 p-20">
-        <div>
+      <div className="grid grid-cols-4 p-20 pb-6 justify-items-center">
+        <div className="space-y-2">
           <Logo />
-          <p>
+          <p className="font-thin">
             Threepo uses the TMDB Api and is not released under the MIT license.
           </p>
         </div>
-        <div>© Designed and developed by Ahmed Charfeddine</div>
-        <div></div>
+        <div className="space-y-2">
+          <FooterListTitle title="Support" />
+          <div className="flex flex-col text-md font-thin">
+            <p>exclusive@gmail.com</p>
+            <p>+88015-88888-9999</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <FooterListTitle title="Account" />
+          <div className="flex flex-col text-md font-thin">
+            <p>My Account</p>
+            <p>Login / Register</p>
+            <p>Cart</p>
+            <p>Wishlist</p>
+            <p>Shop</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <FooterListTitle title="Quick Link" />
+          <div className="flex flex-col text-md font-thin">
+            <p>Privacy Policy</p>
+            <p>Terms Of Use</p>
+            <p>FAQ</p>
+            <p>Contact</p>
+          </div>
+        </div>
       </div>
-      <div className="py-3 border-y w-full">
+      <div className="py-6 border-t flex items-center justify-center flex-col gap-2 w-[70%] ">
         <SocialMediaLinks />
+        <div>© Designed and developed by Ahmed Charfeddine</div>
       </div>
     </div>
   );
 };
 
 export default Footer;
+
+function FooterListTitle({ title }: { title: string }) {
+  return <h1 className="font-bold text-lg">{title}</h1>;
+}
