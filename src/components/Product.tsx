@@ -9,7 +9,7 @@ export default function ProductDisplay({ product }: { product: product }) {
   return (
     <Card
       key={product.id}
-      className="group h-72 w-72 lg:h-80 lg:w-80 relative flex items-center justify-center overflow-hidden"
+      className="group h-72 w-72 lg:h-80 lg:w-80 relative flex items-center justify-center overflow-hidden shadow-md"
     >
       <Link href={`/products/${product.id}`}>
         <div className="flex items-center justify-center">

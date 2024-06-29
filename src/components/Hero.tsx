@@ -23,14 +23,14 @@ export default function Hero() {
 
 function CarouselItems() {
   return (
-    <section className="py-12">
-      <div className="container">
+    <section className="w-screen h-screen overflow-hidden-auto">
+      <div>
         <Swiper
           navigation
           pagination={{ type: "bullets" }}
           modules={[Navigation, Pagination]}
           onSwiper={(swiper) => console.log(swiper)}
-          className="h-[500px] w-full rounded-lg"
+          className="w-full h-screen rounded-lg"
         >
           {bannerImages.map((product, index) => (
             <SwiperSlide key={index}>

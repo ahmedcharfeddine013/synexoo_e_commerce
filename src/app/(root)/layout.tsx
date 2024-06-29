@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import Nav from "@/components/Nav";
+import Footer from "@/components/layout/Footer";
+import Nav from "@/components/layout/Nav";
 import { AuthProvider } from "@/context/UserContext";
 
 export const dynamic = "force-dynamic";

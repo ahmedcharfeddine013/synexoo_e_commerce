@@ -1,10 +1,10 @@
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/layout/Navbar";
 
 import Logo from "@/components/Logo";
 import { ShoppingCart } from "lucide-react";
 import { Heart } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
-import Nav from "@/components/Nav";
+import Nav from "@/components/layout/Nav";
 import PageHeader from "@/components/PageHeader";
 import ShopByCategory from "@/components/ShopByCategory";
 import Filter from "@/components/Filter";

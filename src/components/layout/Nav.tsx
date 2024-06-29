@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Logo from "./Logo";
-import { Button } from "./ui/button";
+import Logo from "../Logo";
+import { Button } from "../ui/button";
 import { NavLink } from "./Navbar";
 import { Heart, ShoppingCart } from "lucide-react";
-import { Avatar } from "./ui/avatar";
-import SocialMediaLinks from "./SocialMediaLinks";
+import { Avatar } from "../ui/avatar";
+import SocialMediaLinks from "../SocialMediaLinks";
 import Link from "next/link";
+import { X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
@@ -35,13 +37,13 @@ export default function Nav() {
 
   return (
     <div ref={navbarRef} className="relative">
-      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-50">
+      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 fixed w-full z-50 border-b-2">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
           <div></div>
           <div onClick={() => setToggled(false)}>
             <Logo />
           </div>
-          <Button
+          {/* <Button
             onClick={() => setToggled(!toggled)}
             data-collapse-toggle="navbar-hamburger"
             type="button"
@@ -50,22 +52,14 @@ export default function Nav() {
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </Button>
+            {toggled ? <X /> : <Menu />}
+          </Button> */}
+          <button
+            onClick={() => setToggled(!toggled)}
+            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm"
+          >
+            z{toggled ? <X /> : <Menu />}
+          </button>
         </div>
       </nav>
       <div
