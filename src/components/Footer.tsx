@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 const Footer = () => {
   return (
@@ -11,6 +12,9 @@ const Footer = () => {
         </p>
       </div>
       <div>© Designed and developed by Ahmed Charfeddine</div>
+      <div>
+        <SocialMediaLinks />
+      </div>
     </div>
   );
 };
