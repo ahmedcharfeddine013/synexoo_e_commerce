@@ -9,7 +9,8 @@ const Footer = () => {
         <div className="space-y-2">
           <Logo />
           <p className="font-thin">
-            Threepo uses the TMDB Api and is not released under the MIT license.
+            EXTRAMARKET uses the FAKESTORE Api and is not released under the MIT
+            license.
           </p>
         </div>
         <div className="space-y-2">
