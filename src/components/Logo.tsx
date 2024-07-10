@@ -5,7 +5,7 @@ import React from "react";
 export default function Logo() {
   return (
     <Link href={"/"}>
-      <h1 className="text-2xl">
+      <h1 className="md:text-2xl text-lg">
         <span className=" font-bold">EXTRA</span>MARKET
       </h1>
     </Link>

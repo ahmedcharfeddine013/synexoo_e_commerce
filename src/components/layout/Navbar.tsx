@@ -17,14 +17,14 @@ export function Navbar() {
 
   useGSAP(() => {
     if (!toggled) {
-      gsap.to("#mobile_sidebar", {
+      gsap.to("#mobile_links", {
         opacity: 0,
         x: -300,
         duration: 0.5,
       });
     }
     if (toggled) {
-      gsap.to("#mobile_sidebar", {
+      gsap.to("#mobile_links", {
         opacity: 1,
         x: 0,
         duration: 0.5,
@@ -34,8 +34,8 @@ export function Navbar() {
   }, [toggled]);
 
   return (
-    <nav className="py-3 shadow-md flex w-full h-20 flec items-center fixed lg:top-0 justify-between px-6 md:px-20 border-b bg-background">
-      <div className="flex items-center justify-between w-full gap-10">
+    <nav className="py-3 shadow-md flex w-full h-20 flec items-center fixed lg:top-0 justify-between px-6 md:px-20 border-b bg-background z-50">
+      <div className="flex items-center justify-between w-full gap-10 relative">
         <div>
           <Logo />
         </div>
@@ -54,6 +54,14 @@ export function Navbar() {
           >
             <Menu className="w-6 h-6 text-primary" />
           </Button>
+        </div>
+        <div
+          id="mobile_links"
+          className="items-start justify-start gap-4 flex lg:hidden absolute top-0 h-screen bg-white text-lg  flex-col p-10 -left-10 shadow-md z-50 -translate-x-60 opacity-0"
+        >
+          <NavLink href={"/shop"}>Shop</NavLink>
+          <NavLink href={"/about"}>About Us</NavLink>
+          <NavLink href={"/contact"}>Contact Us</NavLink>
         </div>
       </div>
     </nav>
