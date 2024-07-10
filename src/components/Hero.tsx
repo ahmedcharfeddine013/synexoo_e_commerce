@@ -15,7 +15,7 @@ import { bannerImages } from "@/constants";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center w-full h-screen justify-center">
+    <div className="flex flex-col items-center w-full h-screen justify-center overflow-hidden">
       <CarouselItems />
     </div>
   );
@@ -23,7 +23,7 @@ export default function Hero() {
 
 function CarouselItems() {
   return (
-    <section className="w-screen h-screen overflow-hidden p-12">
+    <section className="w-screen h-screen overflow-hidden">
       <div>
         <Swiper
           navigation

@@ -58,7 +58,7 @@ export default function Nav() {
             onClick={() => setToggled(!toggled)}
             className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm"
           >
-            z{toggled ? <X /> : <Menu />}
+            {toggled ? <X /> : <Menu />}
           </button>
         </div>
       </nav>
