@@ -5,7 +5,7 @@ import SocialMediaLinks from "../SocialMediaLinks";
 const Footer = () => {
   return (
     <div className="flex items-center flex-col bg-black text-white gap-5 justify-between border-t-2">
-      <div className="grid grid-cols-4 p-20 pb-6 justify-items-center">
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 p-20 pb-6 justify-items-start lg:justify-items-center gap-5">
         <div className="space-y-2">
           <Logo />
           <p className="font-thin">
