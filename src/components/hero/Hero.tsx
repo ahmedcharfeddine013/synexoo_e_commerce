@@ -24,7 +24,7 @@ export default function Hero() {
 
 function CarouselItems() {
   return (
-    <section className="w-screen h-[80%] overflow-hidden">
+    <section className="w-screen h-full overflow-hidden">
       <CarouselDemo />
     </section>
   );

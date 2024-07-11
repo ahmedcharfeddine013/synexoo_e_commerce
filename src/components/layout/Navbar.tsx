@@ -34,7 +34,7 @@ export function Navbar() {
   }, [toggled]);
 
   return (
-    <nav className="py-3 shadow-md flex w-full h-20 flec items-center fixed lg:top-0 justify-between px-6 md:px-20 border-b bg-background z-50">
+    <nav className="py-3 text-white flex w-full h-20 flec items-center fixed lg:top-0 justify-between px-6 md:px-20 bg-transparent z-50">
       <div className="flex items-center justify-between w-full gap-10 relative">
         <div>
           <Logo />

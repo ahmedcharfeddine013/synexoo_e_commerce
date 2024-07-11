@@ -15,11 +15,14 @@ const CarouselDemo: React.FC = () => {
       className="h-full w-full"
     >
       {bannerImages.map((banner, i) => (
-        <div
-          key={i}
-          className="w-full items-center justify-center overflow-hidden"
-        >
-          <Image src={banner} alt={i.toString()} width={2000} height={2000} />
+        <div key={i} className="w-full items-center justify-center ">
+          <Image
+            src={banner}
+            alt={i.toString()}
+            width={1000}
+            height={1000}
+            className="w-full h-full "
+          />
         </div>
       ))}
     </Carousel>
