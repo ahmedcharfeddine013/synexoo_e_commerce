@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero/Hero";
 import ShopByCategory from "@/components/ShopByCategory";
 import Image from "next/image";
 import PageHeader from "../../components/PageHeader";
