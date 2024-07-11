@@ -16,16 +16,8 @@ import CarouselDemo from "./CarouselDemo";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center w-full h-screen justify-start overflow-hidden">
-      <CarouselItems />
-    </div>
-  );
-}
-
-function CarouselItems() {
-  return (
-    <section className="w-screen h-full overflow-hidden">
+    <div className="w-full h-screen">
       <CarouselDemo />
-    </section>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center mt-20">
         <PageHeader>SHOP BY CATEGORY</PageHeader>
         <ShopByCategory />
         <Subscribe />
