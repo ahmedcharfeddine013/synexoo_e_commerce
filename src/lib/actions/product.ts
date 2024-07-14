@@ -12,10 +12,24 @@ export async function getProducts() {
 
 export async function getProductById(id: string) {
   try {
-    const res = await axios.get("https://api.escuelajs.co/api/v1/products");
+    const res = await axios.get(
+      `https://api.escuelajs.co/api/v1/products/${id}`
+    );
     const data = res.data();
     return data;
   } catch (error) {
     console.log(`Error fetching this products id ${id} data: `, error);
+  }
+}
+
+export async function getProductsByCategoryId(categoryId: string) {
+  try {
+    const res = await axios.get(
+      `https://api.escuelajs.co/api/v1/products/?categoryId=${categoryId}`
+    );
+    const data = res.data();
+    return data;
+  } catch (error) {
+    console.log(`Error fetching this category ${categoryId} products: `, error);
   }
 }
