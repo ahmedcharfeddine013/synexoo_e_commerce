@@ -1,11 +1,16 @@
 "use client";
+import { getProductById, getProducts } from "@/lib/actions/product";
 import { Product } from "@/types/product";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Recommended = () => {
   const [products, setProducts] = useState<Product[]>();
 
-  return <section></section>;
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data));
+  }, []);
+
+  return <section>{JSON.stringify(products)}</section>;
 };
 
 export default Recommended;

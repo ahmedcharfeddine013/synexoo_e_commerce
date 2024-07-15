@@ -2,8 +2,8 @@ import axios from "axios";
 
 export async function getProducts() {
   try {
-    const res = await axios.get("https://api.escuelajs.co/api/v1/products");
-    const data = res.data();
+    const res = await fetch("https://api.escuelajs.co/api/v1/products");
+    const data = res.json();
     return data;
   } catch (error) {
     console.log("Error fetching all products: ", error);
