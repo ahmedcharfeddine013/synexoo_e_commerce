@@ -49,15 +49,15 @@ export function Navbar() {
           <ShoppingCart />
           <User className="lg:block hidden" />
           <Button
-            className="p-0 bg-transparent h-8 w-8 lg:hidden hover:bg-gray-300"
+            className="p-0 bg-transparent h-8 w-8 lg:hidden hover:bg-gray-800"
             onClick={() => setToggled(!toggled)}
           >
-            <Menu className="w-6 h-6 text-primary" />
+            <Menu className="w-6 h-6 " />
           </Button>
         </div>
         <div
           id="mobile_links"
-          className="items-start justify-start gap-4 flex lg:hidden absolute top-0 h-screen bg-white text-lg  flex-col p-10 -left-10 shadow-md z-50 -translate-x-60 opacity-0"
+          className="items-start justify-start gap-4 flex lg:hidden absolute -top-7 h-screen bg-white text-lg text-primary  flex-col p-10 -left-10 md:-left-20 shadow-md z-50 -translate-x-60 opacity-0"
         >
           <NavLink href={"/shop"}>Shop</NavLink>
           <NavLink href={"/about"}>About Us</NavLink>

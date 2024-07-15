@@ -13,7 +13,7 @@ const NewArrivals = () => {
             NEW ARRIVALS ARE NOW IN!
           </h4>
           <div className="z-20 flex items-center md:justify-center">
-            <Button className="md:p-8 bg-white text-gray-900 rounded-[200px]  md:text-xl font-light hover:bg-gray-100">
+            <Button className="md:p-8 bg-white text-gray-900 rounded-[200px] md:text-xl font-light hover:bg-gray-100">
               Show Collection
             </Button>
           </div>
