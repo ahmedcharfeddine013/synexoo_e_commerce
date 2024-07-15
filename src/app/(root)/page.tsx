@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <div className="flex flex-col items-center justify-center mt-20">
         <NewArrivals />
-        <div className="md:grid md:grid-cols-2 pb-10 gap-10">
+        <div className="md:grid md:grid-cols-2 flex flex-col items-center justify-center pb-10 gap-10">
           <TopSales />
           <ShopNow />
         </div>
