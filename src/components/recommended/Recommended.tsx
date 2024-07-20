@@ -2,6 +2,8 @@
 import { getProductById, getProducts } from "@/lib/actions/product";
 import { Product } from "@/types/product";
 import React, { useEffect, useState } from "react";
+import ProductCard from "../product/ProductCard";
+import Loading from "../Loading";
 
 const Recommended = () => {
   const [products, setProducts] = useState<Product[]>();
@@ -12,14 +14,22 @@ const Recommended = () => {
       .then((data) => setProducts(data))
       .then(() => {
         if (products) {
-          console.log(products);
-          const rp = products.slice(0, 3);
+          const rp = products.slice(10, 13);
           setRecommendedProducts(rp);
+          console.log(recommendedProducts);
         }
       });
-  }, [products]);
+  }, [products, recommendedProducts]);
 
-  return <section>{JSON.stringify(recommendedProducts)}</section>;
+  if (!recommendedProducts) return <Loading />;
+
+  return (
+    <section>
+      {recommendedProducts?.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </section>
+  );
 };
 
 export default Recommended;
