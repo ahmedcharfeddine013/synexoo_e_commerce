@@ -36,7 +36,7 @@ export default function Products() {
 
   return (
     <div>
-      <ProductsDisplay products={products} />
+      {/* <ProductsDisplay products={products} /> */}
     </div>
   );
 }
