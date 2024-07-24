@@ -9,25 +9,25 @@ const Recommended = () => {
   const [products, setProducts] = useState<Product[]>();
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>();
 
-  useEffect(() => {
-    getProducts()
-      .then((data) => setProducts(data))
-      .then(() => {
-        if (products) {
-          const rp = products.slice(10, 13);
-          setRecommendedProducts(rp);
-          console.log(recommendedProducts);
-        }
-      });
-  }, [products, recommendedProducts]);
+  // useEffect(() => {
+  //   getProducts()
+  //     .then((data) => setProducts(data))
+  //     .then(() => {
+  //       if (products) {
+  //         const rp = products.slice(10, 13);
+  //         setRecommendedProducts(rp);
+  //         console.log(recommendedProducts);
+  //       }
+  //     });
+  // }, [products, recommendedProducts]);
 
-  if (!recommendedProducts) return <Loading />;
+  // if (!recommendedProducts) return <Loading />;
 
   return (
     <section>
-      {recommendedProducts?.map((product) => (
+      {/* {recommendedProducts?.map((product) => (
         <ProductCard key={product.id} product={product} />
-      ))}
+      ))} */}
     </section>
   );
 };
