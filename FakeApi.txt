@@ -1,0 +1,3 @@
+Bellow is a list of fake api that can be used for frontend developers so they can work on ecommerce projects:
+
+    https://dummyjson.com/docs/products#products-all
