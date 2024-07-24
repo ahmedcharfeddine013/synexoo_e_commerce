@@ -33,3 +33,15 @@ export async function getProductsByCategoryId(categoryId: string) {
     console.log(`Error fetching this category ${categoryId} products: `, error);
   }
 }
+
+export async function getRecommendedProducts() {
+  try {
+    const res = await axios(
+      "https://dummyjson.com/products/category/mens-shirts?limit=3"
+    );
+    const data = res.data.products;
+    return data;
+  } catch (error) {
+    console.log(`Error fetching recommended products: `, error);
+  }
+}
