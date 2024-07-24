@@ -1,16 +1,15 @@
-interface Category {
-  id: number;
-  name: string;
-  image: string;
-}
-
 interface Product {
   id: number;
   title: string;
-  price: number;
   description: string;
-  category: Category;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
   images: string[];
 }
 
-export type { Category, Product };
+export type { Product };

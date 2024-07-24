@@ -27,3 +27,15 @@ export const SocialMediaLinks = [
 ];
 
 export const bannerImages = [banner_1, banner_2];
+
+export const categories = [
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "womens-dresses",
+  "womens-shoes",
+  "womens-bags",
+  "womens-watches",
+  "womens-jewellery",
+  "sunglasses",
+];
