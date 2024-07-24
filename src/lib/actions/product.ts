@@ -37,7 +37,7 @@ export async function getProductsByCategoryId(categoryId: string) {
 export async function getRecommendedProducts() {
   try {
     const res = await axios(
-      "https://dummyjson.com/products/category/mens-shirts?limit=3"
+      "https://dummyjson.com/products/category/mens-shirts?limit=10"
     );
     const data = res.data.products;
     return data;

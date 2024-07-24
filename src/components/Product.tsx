@@ -3,7 +3,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { formatCurrency, truncateString } from "@/lib/formatters";
-import { product } from "@/types/product";
+import { Product } from "@/types/product";
 
 export default function ProductDisplay({ product }: { product: product }) {
   return (

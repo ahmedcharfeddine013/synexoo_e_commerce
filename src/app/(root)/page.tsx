@@ -19,7 +19,9 @@ export default function Home() {
           <ShopNow />
         </div>
         <PageHeader>Recommended For You</PageHeader>
-        <Recommended />
+        <section className=" md:space-y-4">
+          <Recommended />
+        </section>
         <PageHeader>SHOP BY CATEGORY</PageHeader>
         <ShopByCategory />
         <Subscribe />
