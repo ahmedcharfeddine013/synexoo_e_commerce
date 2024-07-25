@@ -8,6 +8,9 @@ import { Mail } from "lucide-react";
 import banner_1 from "../../public/images/slide-1.jpg";
 import banner_2 from "../../public/images/slide-2.jpg";
 
+import male_bg from "../../public/images/shop/male-bg.jpg";
+import female_bg from "../../public/images/shop/female-bg.jpg";
+
 export const SocialMediaLinks = [
   {
     title: "Instagram",
@@ -39,3 +42,5 @@ export const categories = [
   "womens-jewellery",
   "sunglasses",
 ];
+
+export { male_bg, female_bg };

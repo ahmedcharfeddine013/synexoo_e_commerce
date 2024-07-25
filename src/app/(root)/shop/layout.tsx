@@ -10,16 +10,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className="flex items-center justify-center flex-col pt-24">
-      <div className="flex flex-col items-center justify-between w-full">
-        {/* <Filter />
-        <div className="flex flex-col md:flex-row  items-center justify-center gap-10 w-full">
-          <SearchProduct />
-          <Sort />
-        </div> */}
-        <div className="p-10">{children}</div>
-      </div>
-    </div>
-  );
+  return <div>{children}</div>;
 }
