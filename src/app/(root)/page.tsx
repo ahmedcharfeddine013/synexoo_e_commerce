@@ -22,8 +22,8 @@ export default function Home() {
         <section className=" md:space-y-4">
           <Recommended />
         </section>
-        <PageHeader>SHOP BY CATEGORY</PageHeader>
-        <ShopByCategory />
+        {/* <PageHeader>SHOP BY CATEGORY</PageHeader>
+        <ShopByCategory /> */}
         <Subscribe />
       </div>
     </main>

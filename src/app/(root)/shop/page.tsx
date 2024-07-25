@@ -17,7 +17,7 @@ export default function ShopPage() {
         />
         <Link href="/shop/male">
           <button className="px-6 py-3  text-white text-2xl font-bold  hover:bg-black/50 duration-100 transition-all ease-in absolute inset-0 flex items-center justify-center">
-            Shop Men's
+            Shop Men&apos;s
           </button>
         </Link>
       </div>
@@ -31,7 +31,7 @@ export default function ShopPage() {
         />
         <Link href="/shop/male">
           <button className="px-6 py-3  text-white text-2xl font-bold hover:bg-black/50 duration-100 transition-all ease-in absolute inset-0 flex items-center justify-center">
-            Shop Women's
+            Shop Women&apos;s
           </button>
         </Link>
       </div>
