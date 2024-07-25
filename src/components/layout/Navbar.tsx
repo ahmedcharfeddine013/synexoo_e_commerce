@@ -49,7 +49,7 @@ export function Navbar() {
           <ShoppingCart />
           <User className="lg:block hidden" />
           <Button
-            className="p-0 bg-transparent h-8 w-8 lg:hidden hover:bg-gray-800"
+            className="p-0 bg-transparent h-8 text-primary w-8 lg:hidden hover:bg-transparent"
             onClick={() => setToggled(!toggled)}
           >
             <Menu className="w-6 h-6 " />
