@@ -40,9 +40,8 @@ export function Navbar() {
           <Logo />
         </div>
         <div className="items-center justify-center gap-4 hidden lg:flex">
-          <NavLink href={"/shop"}>Shop</NavLink>
-          <NavLink href={"/about"}>About Us</NavLink>
-          <NavLink href={"/contact"}>Contact Us</NavLink>
+          <NavLink href={"/men"}>Men</NavLink>
+          <NavLink href={"/women"}>Women</NavLink>
         </div>
         <div className="flex items-center justify-center gap-4 ">
           <Search />
@@ -59,9 +58,8 @@ export function Navbar() {
           id="mobile_links"
           className="items-start justify-start gap-4 flex lg:hidden absolute -top-7 h-screen bg-white text-lg text-primary  flex-col p-10 -left-10 md:-left-20 shadow-md z-50 -translate-x-60 opacity-0"
         >
-          <NavLink href={"/shop"}>Shop</NavLink>
-          <NavLink href={"/about"}>About Us</NavLink>
-          <NavLink href={"/contact"}>Contact Us</NavLink>
+          <NavLink href={"/men"}>Men</NavLink>
+          <NavLink href={"/women"}>Women</NavLink>
         </div>
       </div>
     </nav>

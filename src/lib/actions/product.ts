@@ -45,3 +45,5 @@ export async function getRecommendedProducts() {
     console.log(`Error fetching recommended products: `, error);
   }
 }
+
+export async function profuctsFetcher() {}
