@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { product } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -16,27 +15,24 @@ import axios from "axios";
 import Loading from "@/components/Loading";
 import PageHeader from "../../../../components/PageHeader";
 import SimilarProducts from "@/components/SimilarProducts";
+import { Product } from "@/types/product";
+import { getProductById } from "@/lib/actions/product";
 
 export default function ProductPage({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const [product, setProduct] = useState<product | null>();
-  const [similarProducts, setSimilarProducts] = useState<product[] | null>();
+  const [product, setProduct] = useState<Product | null>();
+  // const [similarProducts, setSimilarProducts] = useState<Product[] | null>();
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-        const data = res.data;
-        setProduct(data);
-      } catch (error) {
-        console.log("Error fetching your product : ", error);
-      }
+    const getProducts = async () => {
+      const product = await getProductById(id);
+      setProduct(product);
     };
 
-    fetchProduct();
+    getProducts();
   });
 
   if (!product)
@@ -51,7 +47,7 @@ export default function ProductPage({
       <div className="grid grid-cols-1 md:grid-cols-2 h-screen place-items-center">
         <div className="pt-20 flex items-center justify-center">
           <Image
-            src={product.image}
+            src={product.images[0]}
             alt={product.title}
             width={300}
             height={300}
@@ -70,14 +66,14 @@ export default function ProductPage({
               <p>
                 Price: <span className="text-red-500">${product.price}</span>
               </p>
-              <p>Rating : {product.rating.rate}</p>
+              <p>Rating : {product.rating}</p>
             </div>
           </CardContent>
         </Card>
       </div>
       <div className="flex items-center justify-center flex-col gap-10">
         <PageHeader>Similar Products</PageHeader>
-        <SimilarProducts product={product} />
+        {/* <SimilarProducts product={product} /> */}
       </div>
       <div className="flex items-center justify-center py-10 ">
         <Button>

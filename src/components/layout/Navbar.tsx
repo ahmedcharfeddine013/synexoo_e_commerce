@@ -54,16 +54,11 @@ export function Navbar() {
           <NavigationMenuList className=" items-center justify-center gap-4 hidden lg:flex">
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <NavLink href={"/men"}>Men</NavLink>
+                <NavLink href={"/shop/men"}>Men</NavLink>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="flex w-fit gap-3 p-4 flex-col flex-1  ">
                   {maleCategories.map((cat) => (
-                    // <ListItem
-                    //   key={cat.slug}
-                    //   title={cat.name}
-                    //   href={cat.slug}
-                    // ></ListItem>
                     <Link key={cat.slug} href={`/shop/men/${cat.slug}`}>
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
@@ -77,7 +72,7 @@ export function Navbar() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <NavLink href={"/women"}>Women</NavLink>
+                <NavLink href={"/shop/women"}>Women</NavLink>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="flex w-full gap-3 p-4 flex-col flex-1  ">

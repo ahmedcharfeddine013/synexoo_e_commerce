@@ -12,10 +12,8 @@ export async function getProducts() {
 
 export async function getProductById(id: string) {
   try {
-    const res = await axios.get(
-      `https://api.escuelajs.co/api/v1/products/${id}`
-    );
-    const data = res.data();
+    const res = await axios.get(`https://dummyjson.com/products/${id}`);
+    const data = res.data;
     return data;
   } catch (error) {
     console.log(`Error fetching this products id ${id} data: `, error);
@@ -47,3 +45,29 @@ export async function getRecommendedProducts() {
 }
 
 export async function profuctsFetcher() {}
+
+export const fetchMaleProducts = async () => {
+  const maleCategories = [
+    {
+      slug: "mens-shirts",
+      name: "Mens Shirts",
+      url: "https://dummyjson.com/products/category/mens-shirts",
+    },
+    {
+      slug: "mens-shoes",
+      name: "Mens Shoes",
+      url: "https://dummyjson.com/products/category/mens-shoes",
+    },
+    {
+      slug: "mens-watches",
+      name: "Mens Watches",
+      url: "https://dummyjson.com/products/category/mens-watches",
+    },
+  ];
+
+  const requests = maleCategories.map((category) => axios.get(category.url));
+  const responses = await Promise.all(requests);
+
+  const products = responses.flatMap((response) => response.data.products);
+  return products;
+};
