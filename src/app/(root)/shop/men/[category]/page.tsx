@@ -5,7 +5,7 @@ const CategoryPageForMen = ({
 }: {
   params: { category: string };
 }) => {
-  return <div>{category}</div>;
+  return <div className="h-screen flex items-center justify-center">{category}</div>;
 };
 
 export default CategoryPageForMen;

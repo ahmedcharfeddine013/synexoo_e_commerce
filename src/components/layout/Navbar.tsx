@@ -11,6 +11,17 @@ import Logo from "../Logo";
 import { ShoppingCart } from "lucide-react";
 import { Search } from "lucide-react";
 import { User } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { femaleCategories, maleCategories } from "@/constants";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [toggled, setToggled] = useState(false);
@@ -39,10 +50,51 @@ export function Navbar() {
         <div>
           <Logo />
         </div>
-        <div className="items-center justify-center gap-4 hidden lg:flex">
-          <NavLink href={"/men"}>Men</NavLink>
-          <NavLink href={"/women"}>Women</NavLink>
-        </div>
+        <NavigationMenu>
+          <NavigationMenuList className=" items-center justify-center gap-4 hidden lg:flex">
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                <NavLink href={"/men"}>Men</NavLink>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="flex w-fit gap-3 p-4 flex-col flex-1  ">
+                  {maleCategories.map((cat) => (
+                    // <ListItem
+                    //   key={cat.slug}
+                    //   title={cat.name}
+                    //   href={cat.slug}
+                    // ></ListItem>
+                    <Link key={cat.slug} href={`/shop/men/${cat.slug}`}>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        {cat.name}
+                      </NavigationMenuLink>
+                    </Link>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                <NavLink href={"/women"}>Women</NavLink>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="flex w-full gap-3 p-4 flex-col flex-1  ">
+                  {femaleCategories.map((cat) => (
+                    <Link key={cat.slug} href={`/shop/women/${cat.slug}`}>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        {cat.name}
+                      </NavigationMenuLink>
+                    </Link>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <div className="flex items-center justify-center gap-4 ">
           <Search />
           <ShoppingCart />
@@ -75,3 +127,29 @@ export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
     </div>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 w-fit rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
